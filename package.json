@@ -1,0 +1,43 @@
+{
+  "name": "ideia-em-fluxo",
+  "version": "1.0.0",
+  "description": "Organizador pessoal de projetos, divisões e tarefas.",
+  "main": "electron/main.cjs",
+  "author": "Ideia em Fluxo",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist:win": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^38.1.2",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.ideiaemfluxo.desktop",
+    "productName": "Ideia em Fluxo",
+    "artifactName": "Ideia-em-Fluxo-Setup-${version}.${ext}",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": ["nsis"]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Ideia em Fluxo"
+    }
+  }
+}
